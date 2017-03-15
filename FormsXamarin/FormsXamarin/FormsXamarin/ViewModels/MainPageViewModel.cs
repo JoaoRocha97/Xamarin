@@ -1,5 +1,7 @@
-﻿using System;
+﻿using FormsXamarin.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,11 +64,17 @@ namespace FormsXamarin.ViewModels
         public MainPageViewModel()
         {
             SomarCommand = new Command(ExecuteSomarCommand, CanExecuteSomarCommand);
+            Historico = new ObservableCollection<ItemDeHistorico>();
         }
 
-        private bool CanExecuteSomarCommand() => PrimeiroNumero > 0 && SegundoNumero > 0;         
+        private bool CanExecuteSomarCommand() => PrimeiroNumero > 0 && SegundoNumero > 0;
 
-        private void ExecuteSomarCommand() => Resultado = PrimeiroNumero + SegundoNumero;
-        
+        private void ExecuteSomarCommand()
+        {
+            Resultado = PrimeiroNumero + SegundoNumero;
+            Historico.Add(new ItemDeHistorico(PrimeiroNumero, SegundoNumero, Resultado));
+        }
+
+        public ObservableCollection<ItemDeHistorico> Historico { get; set; }
     }
 }

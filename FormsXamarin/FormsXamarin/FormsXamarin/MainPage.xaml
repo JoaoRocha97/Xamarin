@@ -9,6 +9,8 @@
     <Entry Text="{Binding SegundoNumero}" Placeholder="Segundo Número" Keyboard="Numeric"/>
     <Label Text="{Binding Resultado}"/>
     <Button Text="Somar" Command="{Binding SomarCommand}"/>
-  </StackLayout>
+        <ListView ItemsSource="{Binding Historico}">
+        </ListView>       
+    </StackLayout>
 
 </ContentPage>
