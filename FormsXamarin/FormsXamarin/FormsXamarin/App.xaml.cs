@@ -11,6 +11,7 @@ namespace FormsXamarin {
             InitializeComponent();
 
             MainPage = new FormsXamarin.MainPage();
+
         }
 
         protected override void OnStart() {
