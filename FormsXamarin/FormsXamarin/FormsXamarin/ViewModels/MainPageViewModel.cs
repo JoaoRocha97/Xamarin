@@ -23,6 +23,7 @@ namespace FormsXamarin.ViewModels
             {
                 primeiroNumero = value;
                 OnPropertyChanged();
+                SomarCommand.ChangeCanExecute();
             }
         }
 
@@ -37,6 +38,7 @@ namespace FormsXamarin.ViewModels
             {
                 segundoNumero = value;
                 OnPropertyChanged();
+                SomarCommand.ChangeCanExecute();
             }
         }
 
@@ -47,14 +49,24 @@ namespace FormsXamarin.ViewModels
                 return resultado;
             }
 
-            set
+            private set
             {
                 resultado = value;
                 OnPropertyChanged();
+                SomarCommand.ChangeCanExecute();
             }
         }
 
-        public Command SomarCommand { get; set; }
+        public Command SomarCommand { get; private set; }
 
+        public MainPageViewModel()
+        {
+            SomarCommand = new Command(ExecuteSomarCommand, CanExecuteSomarCommand);
+        }
+
+        private bool CanExecuteSomarCommand() => PrimeiroNumero > 0 && SegundoNumero > 0;         
+
+        private void ExecuteSomarCommand() => Resultado = PrimeiroNumero + SegundoNumero;
+        
     }
 }
