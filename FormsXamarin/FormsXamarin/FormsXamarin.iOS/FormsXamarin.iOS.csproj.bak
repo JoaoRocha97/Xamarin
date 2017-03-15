@@ -10,7 +10,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>FormsXamarin.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>FormsXamariniOS</AssemblyName>
+    <AssemblyName>FormsXamarin.iOS</AssemblyName>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>

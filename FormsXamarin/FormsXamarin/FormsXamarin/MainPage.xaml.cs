@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FormsXamarin.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace FormsXamarin {
     public partial class MainPage : ContentPage {
         public MainPage() {
             InitializeComponent();
+            BindingContext = new MainPageViewModel();
         }
     }
 }
