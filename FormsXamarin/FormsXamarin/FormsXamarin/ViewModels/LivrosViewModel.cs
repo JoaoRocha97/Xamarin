@@ -6,7 +6,7 @@ namespace FormsXamarin.ViewModels
     class LivrosViewModel : BaseViewModel
     {
         private ObservableCollection<Models.Livro> livros;
-        public Command Carregar { get; set; }
+        public Command CarregarCommand { get; set; }
         public ObservableCollection<Models.Livro> Livros
         {
             get
@@ -22,7 +22,7 @@ namespace FormsXamarin.ViewModels
         public LivrosViewModel()
         {
             Livros = new ObservableCollection<Models.Livro>();
-            Carregar = new Command(async () =>
+            CarregarCommand = new Command(async () =>
             {
                 var livros = await ApiLivros.Api.GetAsync();
                 Livros = new ObservableCollection<Models.Livro>(livros);

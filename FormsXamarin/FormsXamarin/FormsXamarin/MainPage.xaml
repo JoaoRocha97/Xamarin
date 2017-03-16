@@ -4,29 +4,15 @@
              xmlns:local="clr-namespace:FormsXamarin"
              x:Class="FormsXamarin.MainPage" Padding="0, 10, 0, 0">
   
-  <StackLayout>
-    <Entry Text="{Binding PrimeiroNumero}" Placeholder="Primeiro Número" Keyboard="Numeric"/>
-    <Entry Text="{Binding SegundoNumero}" Placeholder="Segundo Número" Keyboard="Numeric"/>
-    <Label Text="{Binding Resultado}"/>
-    <Button Text="Somar" Command="{Binding SomarCommand}"/>
-        <ListView ItemsSource="{Binding Historico}">
+  <StackLayout Spacing="10">
+    <Label Text="API de Livros"/>
+    <Button Text="Carregar" Command="{Binding CarregarCommand}"/>
+        <ListView ItemsSource="{Binding Livros}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding PrimeiroNumero}" HorizontalTextAlignment="Center"/>
-                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding SegundoNumero}" HorizontalTextAlignment="Center"/>
-                            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Resultado}" HorizontalTextAlignment="Center"/>
-                        </Grid>
-                    </ViewCell>
+                  <ViewCell>
+                    <Label Text="{Binding Nome}"/>
+                  </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>       
