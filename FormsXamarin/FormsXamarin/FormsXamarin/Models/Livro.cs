@@ -5,7 +5,7 @@ namespace FormsXamarin.Models
     class Livro : BaseViewModel
     {
         private int id;
-        private string titulo;
+        private string nome;
         private Autor autor;
 
         public int Id
@@ -22,16 +22,16 @@ namespace FormsXamarin.Models
             }
         }
 
-        public string Titulo
+        public string Nome
         {
             get
             {
-                return titulo;
+                return nome;
             }
 
             set
             {
-                titulo = value;
+                nome = value;
                 OnPropertyChanged();
             }
         }
