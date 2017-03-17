@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
 namespace FormsXamarin.ViewModels
@@ -27,7 +25,6 @@ namespace FormsXamarin.ViewModels
         public LivrosViewModel()
         {
             Livros = new ObservableCollection<Models.Livro>();
-            Livros.Add(new Models.Livro { Id = 1, Nome = "Teste"});
             CarregarCommand = new Command(async () =>
             {
                 var livros = await ApiLivros.Api.GetAsync();
@@ -35,5 +32,7 @@ namespace FormsXamarin.ViewModels
                 Livros = new ObservableCollection<Models.Livro>(livros);
             });
         }
+        
+    });
     }
 }

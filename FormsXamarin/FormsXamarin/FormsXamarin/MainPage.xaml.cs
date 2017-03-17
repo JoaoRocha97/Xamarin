@@ -7,6 +7,7 @@ namespace FormsXamarin
         public MainPage() {
             InitializeComponent();
             BindingContext = new LivrosViewModel();
+            var teste = DisplayAlert("Alerta", "Verifique sua conexão com a internet.", "OK");
         }
     }
 }
