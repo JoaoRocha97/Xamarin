@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FormsXamarin.Models
 {
-    class Livro : ViewModels.BaseViewModel
+    public class Livro : INotifyPropertyChanged
     {
         private int id;
         private string nome;
         private Autor autor;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public int Id
         {
@@ -22,7 +25,7 @@ namespace FormsXamarin.Models
             set
             {
                 id = value;
-                OnPropertyChanged();
+                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(id)));
             }
         }
 
@@ -36,7 +39,7 @@ namespace FormsXamarin.Models
             set
             {
                 nome = value;
-                OnPropertyChanged();
+                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(nome)));
             }
         }
 
@@ -50,7 +53,7 @@ namespace FormsXamarin.Models
             set
             {
                 autor = value;
-                OnPropertyChanged();
+                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(autor)));
             }
         }
     }

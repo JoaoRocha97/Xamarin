@@ -3,13 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:FormsXamarin"
              x:Class="FormsXamarin.MainPage" Padding="0, 10, 0, 0">
-  
-  <StackLayout>
-    <Entry Text="{Binding PrimeiroNumero}" Placeholder="Primeiro Número" Keyboard="Numeric"/>
-    <Entry Text="{Binding SegundoNumero}" Placeholder="Segundo Número" Keyboard="Numeric"/>
-    <Label Text="{Binding Resultado}"/>
-    <Button Text="Somar" Command="{Binding SomarCommand}"/>
-        <ListView ItemsSource="{Binding Historico}">
+
+    <StackLayout Spacing="10">
+        <Label Text="API de Livros" HorizontalTextAlignment="Center"/>
+    <Button Text="Carregar Livros" Command="{Binding CarregarCommand}"/>
+        <ListView ItemsSource="{Binding Livros}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding Nome}" HorizontalTextAlignment="Center"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>       
     </StackLayout>
 
